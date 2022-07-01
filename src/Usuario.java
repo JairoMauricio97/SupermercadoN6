@@ -11,6 +11,7 @@ public class Usuario {
 	private int esFrecuente;
 	
 	public Usuario() {
+
 		
 	}
 	
@@ -74,8 +75,5 @@ public class Usuario {
 	public void setEsFrecuente(int esFrecuente) {
 		this.esFrecuente = esFrecuente;
 	}
-
-	
-	
 		
 }

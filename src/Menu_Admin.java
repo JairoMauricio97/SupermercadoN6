@@ -24,16 +24,35 @@ public class Menu_Admin {
 		
 		if(op==1) {
 			
-			String sql="select idProducto,Nombre,Stock,categoria from Productos inner join categorias using(idcategoria) ;";
+			String sql="select idProducto,Nombre,Stock,categoria,Precio from Productos inner join categorias using(idcategoria) ;";
 			ResultSet r=conn.devolverConsulta(sql);
-			System.out.println("id|\t Nombre|\t Stock|\t categoria\t");
+			System.out.println("id|\t Nombre|\t Stock|\t categoria\t |Precio");
 			while(r.next()) {
 
 				System.out.println(r.getInt("idProducto")+"\t"+r.getString("Nombre")+"\t"+
-				r.getString("Stock")+"\t"+r.getString("categoria"));
+				r.getString("Stock")+"\t"+r.getString("categoria")+"\t"+r.getString("Precio"));
 			}
 			
 			
+		}{
+			
+			String sql="select idProducto,Nombre,Stock,categoria,Precio from Productos inner join categorias using(idcategoria) ;";
+			ResultSet r=conn.devolverConsulta(sql);
+			System.out.println("id|\t Nombre|\t Stock|\t categoria\t| precio");
+			while(r.next()) {
+
+				System.out.println(r.getInt("idProducto")+"\t"+r.getString("Nombre")+"\t"+
+				r.getString("Stock")+"\t"+r.getString("categoria")+"\t"+r.getString("Precio"));
+			}
+			
+			System.out.print("Ingrese el id del producto a modificar");
+			
+			int id=t.nextInt();
+			System.out.print("Ingrese el nuevo precio");
+			String precio=t.next();
+			String sql1=" UPDATE Productos SET Precio= "+"'"+precio+"'"+" where idProducto="+id+";";
+			
+			conn.EjecutarConsulta(sql1);
 		}
 		
 		
