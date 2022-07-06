@@ -31,10 +31,6 @@ public class Principal {
 			break;
 		}
 			
-		
-		
-		
-	
 	}
 	
 	
@@ -55,7 +51,6 @@ public class Principal {
 		String pass2=t.next();
 
 		if(n.isEmpty()==false && pass.equals(pass2)) {
-		
 			ArrayList<String> listValores=new ArrayList<>();
 			listValores.add(n);
 			listValores.add(ap);
@@ -87,6 +82,11 @@ public class Principal {
 				Menu_Admin menuA= new Menu_Admin(u);
 				
 			}else {
+				Usuario u=new Usuario(r.getInt("idUsuario"),r.getString("Nombre"),r.getString("Apellido"),
+						r.getString("Correo"),r.getString("Dni"),r.getString("pass"),r.getInt("idRol"),
+						r.getInt("EsFrecuente"));
+				
+				Menu_Usuario menu_U=new Menu_Usuario(u);
 				System.out.println("Sos usuario comun");
 			}
 			

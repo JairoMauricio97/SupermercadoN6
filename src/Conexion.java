@@ -38,6 +38,26 @@ public class Conexion {
 			//System.out.print("LIsto");
 		}
 
+		
+	public void AgregarProducto(ArrayList<String>elementos) throws SQLException {
+		System.out.println("Creando Statement");
+		stmt= conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+		String sql;
+		sql="insert into Productos (Nombre,Stock,idCategoria,Precio) "+
+		" values (?,?,?,?)";
+		
+		 PreparedStatement preparedStmt = conn.prepareStatement(sql);
+		    
+	      preparedStmt.setString (1,elementos.get(0) );
+	      preparedStmt.setString (2,elementos.get(1) );
+	      preparedStmt.setInt (4,Integer.parseInt(elementos.get(2) ));
+	      preparedStmt.setString (5,elementos.get(3) );
+
+	      
+	      preparedStmt.execute();
+	      
+	}
+	
 		public ResultSet devolverConsulta(String query) throws SQLException {
 			//System.out.println("creando declaracion");
 			stmt= conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
